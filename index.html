@@ -1,0 +1,1311 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17000d">
+<title>For My Jaan ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#080006;
+    color:#fff;
+}
+
+/* ================= BACKGROUND ================= */
+
+.bg{
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    background:
+        radial-gradient(circle at 15% 15%,#ff174c35,transparent 28%),
+        radial-gradient(circle at 85% 25%,#ff4f8130,transparent 30%),
+        radial-gradient(circle at 50% 100%,#a3004530,transparent 35%),
+        linear-gradient(135deg,#070006,#19000e,#080006);
+}
+
+.glow{
+    position:fixed;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:.18;
+    pointer-events:none;
+}
+
+.glow1{
+    background:#ff174c;
+    top:-100px;
+    left:-100px;
+}
+
+.glow2{
+    background:#b000ff;
+    bottom:-120px;
+    right:-100px;
+}
+
+/* ================= STARS ================= */
+
+.star{
+    position:fixed;
+    width:2px;
+    height:2px;
+    border-radius:50%;
+    background:#fff;
+    opacity:.4;
+    animation:twinkle 2s infinite alternate;
+    z-index:-2;
+}
+
+@keyframes twinkle{
+    from{
+        opacity:.15;
+        transform:scale(.5);
+    }
+    to{
+        opacity:1;
+        transform:scale(1.6);
+    }
+}
+
+/* ================= FLOATING HEARTS ================= */
+
+.heart{
+    position:fixed;
+    bottom:-40px;
+    pointer-events:none;
+    z-index:20;
+    animation:heartUp linear forwards;
+}
+
+@keyframes heartUp{
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:0;
+    }
+    10%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-115vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* ================= START SCREEN ================= */
+
+#startScreen{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:25px;
+    background:
+        radial-gradient(circle at center,#ff174c22,transparent 45%),
+        linear-gradient(135deg,#080006,#22000f,#080006);
+}
+
+.startBox{
+    width:100%;
+    max-width:430px;
+    animation:startIn 1.2s ease;
+}
+
+.startHeart{
+    font-size:82px;
+    animation:heartbeat 1.3s infinite;
+    margin-bottom:15px;
+}
+
+.startBox h1{
+    font-size:38px;
+    margin-bottom:14px;
+}
+
+.startBox p{
+    color:#ffd8e2;
+    line-height:1.8;
+    font-size:16px;
+    margin-bottom:28px;
+}
+
+.startBtn{
+    border:0;
+    color:white;
+    padding:17px 30px;
+    border-radius:50px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    background:linear-gradient(45deg,#ff174c,#d0006f,#8e2de2);
+    box-shadow:
+        0 0 20px #ff174c70,
+        0 0 50px #ff174c25;
+    animation:buttonGlow 2s infinite alternate;
+}
+
+@keyframes startIn{
+    from{
+        opacity:0;
+        transform:scale(.75);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+@keyframes heartbeat{
+    50%{
+        transform:scale(1.18);
+    }
+}
+
+@keyframes buttonGlow{
+    from{
+        box-shadow:0 0 15px #ff174c50;
+    }
+    to{
+        box-shadow:0 0 35px #ff174ca0;
+    }
+}
+
+/* ================= MAIN ================= */
+
+#main{
+    display:none;
+    width:100%;
+    height:100%;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress{
+    position:fixed;
+    top:0;
+    left:0;
+    width:10%;
+    height:4px;
+    z-index:500;
+    transition:.5s;
+    background:linear-gradient(90deg,#ff174c,#ff69a0,#b000ff);
+}
+
+/* ================= MUSIC ================= */
+
+.musicBtn{
+    position:fixed;
+    top:17px;
+    right:17px;
+    z-index:600;
+    border:1px solid #ffffff30;
+    color:white;
+    background:#ffffff12;
+    backdrop-filter:blur(12px);
+    padding:11px 15px;
+    border-radius:30px;
+    font-size:14px;
+}
+
+/* ================= SCENES ================= */
+
+.scene{
+    width:100%;
+    height:100vh;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:45px 20px 105px;
+    animation:sceneIn .75s ease;
+}
+
+.scene.active{
+    display:flex;
+}
+
+.content{
+    width:100%;
+    max-width:650px;
+    max-height:calc(100vh - 140px);
+    overflow-y:auto;
+    scrollbar-width:none;
+}
+
+.content::-webkit-scrollbar{
+    display:none;
+}
+
+@keyframes sceneIn{
+    from{
+        opacity:0;
+        transform:translateY(25px) scale(.97);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.emoji{
+    font-size:62px;
+    margin-bottom:12px;
+}
+
+h1{
+    font-size:clamp(32px,8vw,58px);
+    margin-bottom:17px;
+    line-height:1.1;
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #ffb5ca,
+        #fff,
+        #ff7fa5
+    );
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+h2{
+    font-size:28px;
+    line-height:1.25;
+    margin-bottom:17px;
+}
+
+p{
+    color:#ffe5ec;
+    font-size:16.5px;
+    line-height:1.8;
+}
+
+/* ================= GLASS CARD ================= */
+
+.card{
+    margin-top:20px;
+    padding:24px;
+    border-radius:26px;
+    background:#ffffff0d;
+    border:1px solid #ffffff20;
+    backdrop-filter:blur(15px);
+    box-shadow:
+        0 20px 60px #00000055,
+        inset 0 0 30px #ffffff04;
+}
+
+/* ================= PHOTO ================= */
+
+.photoBox{
+    width:min(330px,88vw);
+    margin:20px auto;
+    padding:7px;
+    border-radius:28px;
+    background:linear-gradient(
+        135deg,
+        #ff174c,
+        #ff70a0,
+        #a000ff,
+        #ff174c
+    );
+    background-size:300% 300%;
+    animation:borderMove 5s ease infinite,
+              photoFloat 3.5s ease-in-out infinite;
+    box-shadow:
+        0 0 30px #ff174c45,
+        0 20px 60px #00000060;
+}
+
+.photoBox img{
+    display:block;
+    width:100%;
+    height:270px;
+    object-fit:cover;
+    border-radius:22px;
+    background:#17000d;
+}
+
+.photoCaption{
+    padding:10px 5px 4px;
+    color:#ffd4df;
+    font-size:14px;
+    font-weight:bold;
+}
+
+@keyframes borderMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+@keyframes photoFloat{
+    50%{
+        transform:translateY(-7px);
+    }
+}
+
+/* ================= REASONS ================= */
+
+.reason{
+    padding:14px;
+    margin:10px 0;
+    border-radius:17px;
+    background:#ffffff09;
+    border:1px solid #ffffff0e;
+    color:#ffe4eb;
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline{
+    text-align:left;
+}
+
+.timeItem{
+    position:relative;
+    padding:15px 15px 15px 25px;
+    margin:12px 0;
+    border-left:2px solid #ff4f81;
+    background:#ffffff08;
+    border-radius:0 15px 15px 0;
+}
+
+.timeItem b{
+    color:#ffb3c7;
+}
+
+/* ================= GIFT ================= */
+
+.gift{
+    font-size:100px;
+    animation:giftBounce 1.5s infinite;
+}
+
+@keyframes giftBounce{
+    50%{
+        transform:translateY(-15px) rotate(2deg);
+    }
+}
+
+/* ================= CAKE ================= */
+
+.cake{
+    font-size:105px;
+    animation:heartbeat 1.5s infinite;
+}
+
+/* ================= FINAL ================= */
+
+.finalHeart{
+    font-size:90px;
+    animation:heartbeat 1.2s infinite;
+}
+
+/* ================= NAVIGATION ================= */
+
+.nav{
+    position:fixed;
+    bottom:19px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:10px;
+    z-index:700;
+}
+
+.nav button{
+    border:1px solid #ffffff30;
+    background:#ffffff12;
+    color:white;
+    backdrop-filter:blur(15px);
+    padding:12px 18px;
+    border-radius:30px;
+    font-size:14px;
+}
+
+/* ================= CONFETTI ================= */
+
+.confetti{
+    position:fixed;
+    top:-30px;
+    z-index:1000;
+    pointer-events:none;
+    animation:confettiFall 4s linear forwards;
+}
+
+@keyframes confettiFall{
+    to{
+        transform:
+        translateY(115vh)
+        rotate(720deg);
+        opacity:0;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:500px){
+
+    .scene{
+        padding:42px 16px 105px;
+    }
+
+    .content{
+        max-width:100%;
+    }
+
+    h1{
+        font-size:34px;
+    }
+
+    h2{
+        font-size:24px;
+    }
+
+    p{
+        font-size:15px;
+    }
+
+    .card{
+        padding:19px;
+        border-radius:22px;
+    }
+
+    .photoBox{
+        width:min(310px,88vw);
+    }
+
+    .photoBox img{
+        height:235px;
+    }
+
+    .emoji{
+        font-size:55px;
+    }
+
+    .startBox h1{
+        font-size:32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+
+
+<!-- ================= START SCREEN ================= -->
+
+<div id="startScreen">
+
+    <div class="startBox">
+
+        <div class="startHeart">❤️</div>
+
+        <h1>For My Jaan</h1>
+
+        <p>
+            I made something special for you...
+            <br><br>
+            Put your volume up,
+            take a deep breath,
+            and open your surprise. 🥹❤️
+        </p>
+
+        <button class="startBtn" onclick="startSurprise()">
+            💖 Open My Surprise 💖
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= MUSIC ================= -->
+
+<audio id="music" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- ================= MAIN ================= -->
+
+<div id="main">
+
+<div class="progress" id="progress"></div>
+
+<button class="musicBtn" id="musicBtn" onclick="toggleMusic()">
+    🔊 Music
+</button>
+
+
+<!-- ================= SCENE 1 ================= -->
+
+<section class="scene active">
+
+<div class="content">
+
+<div class="emoji">🌹❤️</div>
+
+<h1>For My Jaan</h1>
+
+<p>
+Today isn't just another day...
+<br><br>
+
+Today is the birthday of the person
+who makes my world a little brighter,
+my heart a little happier,
+and my life a lot more beautiful. ❤️
+</p>
+
+<div class="card">
+
+<p>
+You are not just someone I love...
+<br><br>
+
+You are my favorite person,
+my happiness,
+my comfort,
+and my beautiful Jaan. 🥹❤️
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SCENE 2 ================= -->
+
+<section class="scene">
+
+<div class="content">
+
+<div class="emoji">🥹❤️</div>
+
+<h2>The Person Who Means So Much</h2>
+
+<p>
+There are many people we meet in life...
+<br><br>
+
+But then there is that one person
+who becomes different from everyone else.
+<br><br>
+
+For me, that's you. ❤️
+</p>
+
+<div class="photoBox">
+
+<img src="photo1.jpg" alt="Our Memory 1">
+
+<div class="photoCaption">
+One of my favorite memories with you ❤️
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SCENE 3 ================= -->
+
+<section class="scene">
+
+<div class="content">
+
+<div class="emoji">🌹</div>
+
+<h2>My Favorite Person ❤️</h2>
+
+<div class="photoBox">
+
+<img src="photo2.jpg" alt="Our Memory 2">
+
+<div class="photoCaption">
+You make ordinary moments beautiful. 💕
+</div>
+
+</div>
+
+<p>
+Sometimes I look at you and wonder
+how I got so lucky to have someone
+like you in my life.
+<br><br>
+
+You're honestly one of the most
+beautiful parts of my world. ❤️
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ================= SCENE 4 ================= -->
+
+<section class="scene">
+
+<div class="content">
+
+<div class="emoji">🕰️💕</div>
+
+<h2>Our Little Story</h2>
+
+<div class="photoBox">
+
+<img src="photo3.jpg" alt="Our Memory 3">
+
+<div class="photoCaption">
+A memory I'll always treasure. ✨
+</div>
+
+</div>
+
+<div class="card timeline">
+
+<div class="timeItem">
+<b>🌸 The Beginning</b><br>
+The moment you became a part of my life.
+</div>
+
+<div class="timeItem">
+<b>💕 Getting Closer</b><br>
+Slowly, you became someone
+I couldn't imagine my days without.
+</div>
+
+<div class="timeItem">
+<b>🥹 The Memories</b><br>
+Every laugh, every conversation,
+every little moment became special.
+</div>
+
+<div class="timeItem">
+<b>♾️ Today & Forever</b><br>
+And I hope our story keeps getting
+more beautiful with time.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SCENE 5 ================= -->
+
+<section class="scene">
+
+<div class="content">
+
+<div class="emoji">💌🌹</div>
+
+<h2>A Letter From My Heart</h2>
+
+<div class="photoBox">
+
+<img src="photo4.jpg" alt="Our Memory 4">
+
+<div class="photoCaption">
+A picture, a memory, a thousand feelings. ❤️
+</div>
+
+</div>
+
+<div class="card">
+
+<p>
+
+My Jaan,
+<br><br>
+
+I don't always know how to put my feelings
+into words, but today I want to try.
+<br><br>
+
+Thank you for coming into my life.
+Thank you for every smile,
+every conversation,
+every memory,
+and every little moment
+that became special simply because
+it was with you.
+<br><br>
+
+You have no idea how much your presence
+means to me.
+<br><br>
+
+When I'm happy, I want to share it with you.
+When I'm upset, somehow talking to you
+makes everything feel a little easier.
+<br><br>
+
+And if I could give you one thing today,
+it would be the ability to see yourself
+through my eyes...
+<br><br>
+
+Because then you'd understand
+just how special you really are to me. ❤️
+<br><br>
+
+Happy Birthday, My Jaan. 🌹
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SCENE 6 ================= -->
+
+<section class="scene">
+
+<div class="content">
+
+<div class="emoji">✨❤️</div>
+
+<h2>Why You Are So Special</h2>
+
+<div class="card">
+
+<div class="reason">
+❤️ Because your smile can change my whole mood.
+</div>
+
+<div class="reason">
+🥹 Because I feel comfortable being myself with you.
+</div>
+
+<div class="reason">
+🌹 Because even ordinary moments feel special with you.
+</div>
+
+<div class="reason">
+🤍 Because you understand things I don't even say.
+</div>
+
+<div class="reason">
+💕 Because your presence makes my world better.
+</div>
+
+<div class="reason">
+♾️ Because no matter how much time passes,
+you'll always be special to me.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SCENE 7 ================= -->
+
+<section class="scene">
+
+<div class="content">
+
+<div class="emoji">🤞❤️</div>
+
+<h2>A Promise From Me</h2>
+
+<div class="photoBox">
+
+<img src="photo5.jpg" alt="Our Memory 5">
+
+<div class="photoCaption">
+One more memory for forever. 💖
+</div>
+
+</div>
+
+<div class="card">
+
+<p>
+
+I promise to appreciate you.
+<br><br>
+
+I promise to listen to you.
+<br><br>
+
+I promise to be there for you
+whenever you need someone.
+<br><br>
+
+I promise to keep making memories
+with you.
+<br><br>
+
+And most importantly...
+<br><br>
+
+I'll never stop reminding you
+how special you are to me. ❤️
+<br><br>
+
+No matter what happens,
+you'll always have a special place
+in my heart. ♾️
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SCENE 8 ================= -->
+
+<section class="scene">
+
+<div class="content">
+
+<div class="gift">🎁</div>
+
+<h2>Your Birthday Gift</h2>
+
+<div class="card">
+
+<p>
+
+I wanted to give you something
+that couldn't simply be bought
+from a store.
+<br><br>
+
+So I made you a little piece
+of my heart. ❤️
+<br><br>
+
+Every picture here holds a memory.
+Every word holds a feeling.
+And every little animation
+is just a reminder...
+<br><br>
+
+That you are loved,
+you are appreciated,
+and you are incredibly special to me. 🌹
+<br><br>
+
+This is my little birthday gift
+for my Jaan. 🎁❤️
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SCENE 9 ================= -->
+
+<section class="scene">
+
+<div class="content">
+
+<div class="cake">🎂</div>
+
+<h1>Happy Birthday, My Jaan ❤️</h1>
+
+<h2>🌹 Today Is Your Day 🌹</h2>
+
+<div class="card">
+
+<p>
+
+May your smile never fade.
+<br><br>
+
+May your heart always stay happy.
+<br><br>
+
+May every dream you have
+find its way to you.
+<br><br>
+
+May your life be filled with
+beautiful moments,
+peace, success and love.
+<br><br>
+
+And may I get to see
+many more birthdays of yours. ❤️
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= SCENE 10 ================= -->
+
+<section class="scene">
+
+<div class="content">
+
+<div class="finalHeart">❤️</div>
+
+<h1>My Jaan</h1>
+
+<div class="card">
+
+<p>
+
+Happy Birthday once again. 🥹❤️
+<br><br>
+
+If you ever wonder
+how important you are to me,
+just remember this:
+<br><br>
+
+You are one of the people
+I never want to lose.
+<br><br>
+
+One of the people
+whose smile matters to me.
+<br><br>
+
+One of the people
+I want to keep making memories with.
+<br><br>
+
+And one of the people
+who has a very special place
+in my heart. ❤️
+<br><br>
+
+Thank you for being you.
+<br><br>
+
+Thank you for being my happiness.
+<br><br>
+
+And thank you for being
+<strong>MY JAAN.</strong> 🌹
+<br><br>
+
+I love you. ❤️♾️
+
+</p>
+
+</div>
+
+<h2 style="margin-top:25px;">
+🎂 HAPPY BIRTHDAY, MY JAAN 🎂
+</h2>
+
+</div>
+
+</section>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<div class="nav">
+
+<button onclick="prevScene()">⬅️</button>
+
+<button onclick="nextScene()">Next ➡️</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ================= VARIABLES ================= */
+
+const scenes = document.querySelectorAll(".scene");
+const music = document.getElementById("music");
+const startScreen = document.getElementById("startScreen");
+const main = document.getElementById("main");
+const progress = document.getElementById("progress");
+const musicBtn = document.getElementById("musicBtn");
+
+let currentScene = 0;
+
+
+/* ================= START ================= */
+
+function startSurprise(){
+
+    startScreen.style.display = "none";
+
+    main.style.display = "block";
+
+    music.volume = 0.75;
+
+    music.play()
+    .then(()=>{
+        musicBtn.innerHTML = "🔊 Music";
+    })
+    .catch(()=>{
+        musicBtn.innerHTML = "🔇 Tap Music";
+    });
+
+    showScene(0);
+
+    createHearts();
+}
+
+
+/* ================= SCENE ================= */
+
+function showScene(index){
+
+    scenes.forEach(scene=>{
+        scene.classList.remove("active");
+    });
+
+    scenes[index].classList.add("active");
+
+    const percent =
+        ((index + 1) / scenes.length) * 100;
+
+    progress.style.width = percent + "%";
+}
+
+
+/* ================= NEXT ================= */
+
+function nextScene(){
+
+    if(currentScene < scenes.length - 1){
+
+        currentScene++;
+
+        showScene(currentScene);
+
+    }else{
+
+        createConfetti();
+
+    }
+}
+
+
+/* ================= PREVIOUS ================= */
+
+function prevScene(){
+
+    if(currentScene > 0){
+
+        currentScene--;
+
+        showScene(currentScene);
+
+    }
+}
+
+
+/* ================= MUSIC ================= */
+
+function toggleMusic(){
+
+    if(music.paused){
+
+        music.play()
+        .then(()=>{
+            musicBtn.innerHTML = "🔊 Music";
+        });
+
+    }else{
+
+        music.pause();
+
+        musicBtn.innerHTML = "🔇 Music";
+
+    }
+}
+
+
+/* ================= HEARTS ================= */
+
+function createHearts(){
+
+    setInterval(()=>{
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        const hearts = [
+            "❤️",
+            "💕",
+            "💖",
+            "💗",
+            "💓",
+            "💞",
+            "💘",
+            "🌹"
+        ];
+
+        heart.innerHTML =
+            hearts[
+                Math.floor(Math.random()*hearts.length)
+            ];
+
+        heart.style.left =
+            Math.random()*100 + "vw";
+
+        heart.style.fontSize =
+            (15 + Math.random()*27) + "px";
+
+        heart.style.animationDuration =
+            (5 + Math.random()*7) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },13000);
+
+    },650);
+}
+
+
+/* ================= STARS ================= */
+
+function createStars(){
+
+    for(let i=0;i<75;i++){
+
+        const star =
+            document.createElement("div");
+
+        star.className = "star";
+
+        star.style.left =
+            Math.random()*100 + "vw";
+
+        star.style.top =
+            Math.random()*100 + "vh";
+
+        star.style.animationDelay =
+            Math.random()*3 + "s";
+
+        document.body.appendChild(star);
+    }
+}
+
+
+/* ================= CONFETTI ================= */
+
+function createConfetti(){
+
+    const items = [
+        "❤️",
+        "💕",
+        "💖",
+        "✨",
+        "🌹",
+        "🎉",
+        "🎊",
+        "🥳",
+        "🎂"
+    ];
+
+    for(let i=0;i<90;i++){
+
+        const item =
+            document.createElement("div");
+
+        item.className = "confetti";
+
+        item.innerHTML =
+            items[
+                Math.floor(Math.random()*items.length)
+            ];
+
+        item.style.left =
+            Math.random()*100 + "vw";
+
+        item.style.fontSize =
+            (15 + Math.random()*28) + "px";
+
+        item.style.animationDuration =
+            (3 + Math.random()*3) + "s";
+
+        document.body.appendChild(item);
+
+        setTimeout(()=>{
+            item.remove();
+        },6500);
+    }
+}
+
+
+/* ================= KEYBOARD ================= */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "ArrowRight"){
+        nextScene();
+    }
+
+    if(e.key === "ArrowLeft"){
+        prevScene();
+    }
+
+});
+
+
+/* ================= INITIAL ================= */
+
+createStars();
+
+</script>
+
+</body>
+</html>
+```
